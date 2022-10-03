@@ -1,0 +1,79 @@
+title: The Secure Blog
+email: supersecurehuman@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  This is my blog, where I post stuff. Thats it.
+#twitter_username:
+github_username: SuperSecureHuman
+minimal_mistakes_skin: dark
+search: true 
+
+#Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+
+#outputting
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: "/page:num/"
+timezone: Asia/Kolkata
+
+include:
+  - _pages
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+author:
+  name   : "Dilip Parasu"
+  avatar : "/assets/images/bio-photo.jpg"
+  bio    : "Tensors go brrr"
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/TheSecureHuman"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/SuperSecureHuman/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/supersecurehuman/"
+
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/TheSecureHuman"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/SuperSecureHuman/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/supersecurehuman/"
+
+defaults:
+  # _posts
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: false
+      share: false
+      related: false
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
