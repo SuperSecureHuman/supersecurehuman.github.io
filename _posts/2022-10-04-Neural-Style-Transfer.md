@@ -4,6 +4,7 @@ tags:
     - pytorch
     - image
     - deep learning
+classes: wide
 ---
 
 ## Introduction
