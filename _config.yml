@@ -70,7 +70,7 @@ defaults:
       comments: false
       share: false
       related: false
-      classes: wide
+      #classes: wide
       toc: true
       toc_label: "Table of Contents"
       toc_icon: "cog"
