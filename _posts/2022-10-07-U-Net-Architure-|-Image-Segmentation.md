@@ -125,7 +125,7 @@ class image_dataset(Dataset):
     def __getitem__(self, idx):
         img_path = os.path.join(self.img_dir, self.images[idx])
         mask_path = os.path.join(
-            self.mask_dir, self.images[idx].replace('.png', '_mask.png'))
+            self.mask_dir, self.images[idx].replace('.png', '.png'))
         image = np.array(Image.open(img_path).convert('RGB'))
         mask = np.array(Image.open(mask_path).convert('L'), dtype=np.float32)
         mask[mask == 255.0] = 1.0
@@ -482,3 +482,37 @@ for epoch in range(NUM_EPOCHS):
         val_loader, model, folder="saved_images/", device=DEVICE
     )
 ```
+
+We got around 0.7 as die score.
+
+![Training Output](https://i.imgur.com/112aDRv.png)  
+
+
+Sample test genereted by save predictions function
+
+Original
+
+![picture 2](https://i.imgur.com/MSHgrcj.png)  
+
+Its prediction
+
+![picture 3](https://i.imgur.com/e3lJI0N.png)  
+
+## Making it better
+
+Die score of 0.7 is not that great. You can see it in the predictions that the segmentation is not very perfect. This can be improved by the following ways:
+
+ * Using higher resolution images
+ * Using LrOnPlateau
+ * There are ways to use pretrained ResNet, VGG etc models in the model, instead of encoder and decoder. This will make the model better.
+ * Increasing layers
+
+## Conclusion
+
+We went through U-Net architure and implemented the same given in the paper. We also trained the model on a dataset, and saw the ways to improve the accuracy.
+
+## References
+
+    * [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
+    * [Carvana Dataset](https://www.kaggle.com/c/carvana-image-masking-challenge)
+    * [Dataloaders for Custom Dataset](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html)
