@@ -492,11 +492,13 @@ Sample test genereted by save predictions function
 
 Original
 
-![picture 2](https://i.imgur.com/MSHgrcj.png)  
+![picture 4](https://i.imgur.com/1cUXbJW.png)  
+
 
 Its prediction
 
-![picture 3](https://i.imgur.com/e3lJI0N.png)  
+![picture 5](https://i.imgur.com/0IePRiT.png)  
+
 
 ## Making it better
 
