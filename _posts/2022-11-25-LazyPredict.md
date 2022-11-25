@@ -5,7 +5,6 @@ tags:
     - sklearn
 excerpt: "I am just too lazy to compare multiple Machine Learning algorithms."
 ---
-## LazyPredict
 
 LazyPredict is a wrapper upon sklearn, that takes in your training data and tests it against multiple algorithms. It then returns a dataframe with the accuracy scores of each algorithm. This is useful when you are just too lazy to compare multiple algorithms.
 
