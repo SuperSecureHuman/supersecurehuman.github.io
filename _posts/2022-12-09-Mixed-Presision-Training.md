@@ -2,8 +2,8 @@
 title: "Mixed Precision Training"
 tags: 
     - pytorch
-    - tensorflow
     - deep learning
+excerpt: "Less memory more speeeeedddd. Training Models with mixed precision for lower memory footprint, and faster training."
 ---
 
 ## Introduction
@@ -23,32 +23,32 @@ We introduce methodology for training deep neural networks using half-precision 
 
 According to IEEE standards, there are various levels of precision that can be used to represent floating point numbers, ranging from binary16 (half-precision) to binary256 (octuple-precision). Here the number after binary represents the number of bits available to represent the number.
 
-For a long time, deep learning has used FP32 (usually reffered as single-precision) to represent all the parameters.
+For a long time, deep learning has used FP32 (usually referred as single-precision) to represent all the parameters.
 
 ## Mixed Precision Training
 
-Note: Here, I'll be trying to provide a jist of this topic from the implementation part of the paper. For more details, please refer to the paper.
+Note: Here, I'll be trying to provide a gist of this topic from the implementation part of the paper. For more details, please refer to the paper.
 
 The idea is to store the weights, activations and gradients in FP16. But doing so, will narrow down the range than single precision. To overcome this, the following is done:
 
 1. Maintaining a single precision copy of the weights which accumulates the gradients after every iteration (this copy is rounded off to FP16 during forward and backward pass).
 2. A method called `loss-scaling` to preserve gradients with very small magnitudes.
-3. Finally, half precision arithmetic that accumlates the gradients in FP32, that is rounded off to FP16 before storing to memory.
+3. Finally, half precision arithmetic that accumulates the gradients in FP32, that is rounded off to FP16 before storing to memory.
 
 
 ### FP32 Master Copy of Weights
 
 To match the accuracy of the single precision model, an FP32 is stored, and parameters are updated during optimizer step. 
 
-In each iteration, an FP16 copy of the master weights is used to compute the forward and backward pass, halving the storage and bandwidth requrements during the training.
+In each iteration, an FP16 copy of the master weights is used to compute the forward and backward pass, halving the storage and bandwidth requirements during the training.
 
 From nvidia's paper
 
 ![Half Pres Flow](https://i.imgur.com/a0LPdAO.jpg)
 
-Reason to maintain a master copy of the weights is to use them, incase the gradient becomes too small to be represented in FP16 (basically, it becomes 0 in FP16, but in FP32, it has some value), and when this small value is multiplied with the learning rate, it becomes even smaller. In order to account this, master copy is updated in such cases at single precision. Ignoring this might adversely affect the model performace.
+Reason to maintain a master copy of the weights is to use them, incase the gradient becomes too small to be represented in FP16 (basically, it becomes 0 in FP16, but in FP32, it has some value), and when this small value is multiplied with the learning rate, it becomes even smaller. In order to account this, master copy is updated in such cases at single precision. Ignoring this might adversely affect the model performance.
 
-Even though maintaing a master copy would mean that we need more memory, the impact on overall memory usage, which is usually dominated by saving of activations for reuse duing backward pass. Processing these in FP32 would mean that we have roughly halved the memory reqirements.
+Even though maintaining a master copy would mean that we need more memory, the impact on overall memory usage, which is usually dominated by saving of activations for reuse during backward pass. Processing these in FP32 would mean that we have roughly halved the memory requirements.
 
 
 ### Scaling Loss
@@ -60,17 +60,17 @@ In FP16, the representable range of values are 10 power [-14, 15]. In practice, 
 
 Here, most of the FP16 range was mostly unused. Scaling up the gradients, can preserve these values, which otherwise will be 0 when converted into FP16. Some network will diverge if the lower gradients are ignored/zeroed out. 
 
-One way to handle this, is to scale the loss into FP16 range during forward pass. By doing this the resultant backward pass, will be scaled by the same factor. By doing this, there is no need of extra opertaions applied to gradients and maintains the relevant gradient values from becomming zero. After all this, gradients must be unscaled to preserve the FP32 master copy. Its recommended to do the unscaling just after the backward pass, before any gradient clipping or any gradient related functions.
+One way to handle this, is to scale the loss into FP16 range during forward pass. By doing this the resultant backward pass, will be scaled by the same factor. By doing this, there is no need of extra operations applied to gradients and maintains the relevant gradient values from becoming zero. After all this, gradients must be unscaled to preserve the FP32 master copy. Its recommended to do the unscaling just after the backward pass, before any gradient clipping or any gradient related functions.
 
 We have to be careful when choosing the scaling factor, to avoid overflow during back-propagation - this will result in infinities and NaNs. One option to skip the updates when there is overflow and move on to next iteration.
 
-### Arthimetic Precision
+### Arithmetic Precision
 
-Most of the arthimetic operations that happen in neural nets fall under these 3 categories:
+Most of the arithmetic operations that happen in neural nets fall under these 3 categories:
 
 1. Dot Product - To maintain model accuracy, nvidia found that FP16 vector dot-product accumulates the partial products into FP32. Now this is important to maintain the model accuracy. After these operations, the final result is saved into memory in FP16. Newer generation Nvidia GPUs have support to multiply in FP16, and accumulate the result in FP32 or FP16.
 
-2. Reduction Operations - Operations that include sums across elements of vectors. These operations read the values in FP16, and does the operation in FP32. These are not slowed down, because of the available hadware acclerations.
+2. Reduction Operations - Operations that include sums across elements of vectors. These operations read the values in FP16, and does the operation in FP32. These are not slowed down, because of the available hardware accelerations.
 
 3. Pointwise Operations - Non-linear stuff, element wise matrix products, etc. These can be done in FP16/FP32.
 

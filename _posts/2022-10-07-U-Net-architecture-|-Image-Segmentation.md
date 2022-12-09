@@ -1,6 +1,6 @@
 ---
-title: "U Net architure for Image Segmentation"
-excerpt: "We will go through u-net architure for image segmentation, and its implementation in pytorch"
+title: "U Net architecture for Image Segmentation"
+excerpt: "We will go through u-net architecture for image segmentation, and its implementation in pytorch"
 tags: 
     - pytorch
     - image
@@ -10,13 +10,13 @@ tags:
 
 Image segmentation is the process of labeling each and every pixel in an image. Its one of the major tasks in computer vision, majorly helping in tasks such as bio medical image segmentation, self driving cars and more.
 
-In this article, we will go on exploring U-Net architure. Along with this, we will also be implementing the same using PyTorch, with help of carvana data set from kaggle.
+In this article, we will go on exploring U-Net architecture. Along with this, we will also be implementing the same using PyTorch, with help of carvana data set from kaggle.
 
 ## U-Net Architure
 
-U-Net architure is a completely built on convolution layers. One thing with all conv layers is that, its independent of input image resolution. We can train this model on say 224x224 images and then use it on 512x512 images. This is one of the major advantages of using only conv layers.
+U-Net architecture is a completely built on convolution layers. One thing with all conv layers is that, its independent of input image resolution. We can train this model on say 224x224 images and then use it on 512x512 images. This is one of the major advantages of using only conv layers.
 
-The architure is as follows:
+The architecture is as follows:
 
 ![U-Net](https://i.imgur.com/i1zgbgu.png)
 
@@ -36,7 +36,7 @@ Encoder path is the path where we are going to downsample the image. We will be 
 
 ### Bottleneck
 
-This is the tranisition part of the architure. Here the input image is passed to the decoder block, where the image is upsampled and the segmentation map is achieveed.
+This is the transition part of the architure. Here the input image is passed to the decoder block, where the image is upsampled and the segmentation map is achieved.
 
 ### Decoder
 
