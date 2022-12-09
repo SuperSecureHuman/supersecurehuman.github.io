@@ -174,6 +174,8 @@ I am not sure why I got this. I'll update if I get any heads up on this
 
 ## Conclusion
 
+You can find the notebook [here](https://github.com/SuperSecureHuman/ML-Experiments/blob/main/Half-Precision-Training/Pytorch_amp_post.ipynb)
+
 Here we took a look at mixed precision training, and trained a simple CIFAR 10 model with torch's amp scaler. Later on, I will make a post on Nvidia Apex, trying out its various features, which is not available on torch's amp yet. See yaa!
 
 ## References
