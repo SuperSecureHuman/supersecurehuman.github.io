@@ -513,7 +513,7 @@ Die score of 0.7 is not that great. You can see it in the predictions that the s
 
 We went through U-Net architure and implemented the same given in the paper. We also trained the model on a dataset, and saw the ways to improve the accuracy.
 
-You can find my repo here - https://github.com/SuperSecureHuman/ML-Experiments/tree/main/Image-Segmentation
+You can find my repo here - https://github.com/SuperSecureHuman/ML-Experiments/tree/main/U-Net-Image_Segmentation
 
 ## References
 
