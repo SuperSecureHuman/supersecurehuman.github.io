@@ -18,79 +18,16 @@ pip install lazypredict
 
 LazyPredict has 2 modes currently - Regressors and Classifiers
 
+
+
+
 ### Regressors
 
 Regression is a supervised learning task where the goal is to predict the output of a continuous value, like a price or a probability. For example, predicting the price of a house based on the number of rooms it has.
 
 Lets see how LazyPredict works with a regression problem.
 
-We will be using a toy dataset from sklearn datasets
 
-```python
-from lazypredict.Supervised import LazyClassifier
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-
-
-# Load Digits Data
-digits = datasets.load_digits()
-
-# Do test train split
-X_train, X_test, y_train, y_test = train_test_split(digits.data, digits.target, test_size=0.2, random_state=42)
-
-# Initialize LazyClassifier
-clf = LazyClassifier(verbose=0,ignore_warnings=True, custom_metric=None)
-
-# Train and Test across multiple models
-models, predictions = clf.fit(X_train, X_test, y_train, y_test)
-```
-
-Now lets look at the output
-
-```python
-
-print(models)
-
-```
-
-|Model                           |Accuracy | Balanced Accuracy | ROC AUC  | F1 Score | Time Taken  |
-|--------------------------------|---------|-------------------|----------|----------|-------------|
-| ExtraTreesClassifier           |    0.98 |              0.98 |    None  |     0.98 |       0.14  |
-| SVC                            |    0.98 |              0.98 |    None  |     0.98 |       0.04  |
-| LGBMClassifier                 |    0.98 |              0.98 |    None  |     0.98 |       0.86  |
-| KNeighborsClassifier           |    0.97 |              0.98 |    None  |     0.97 |       0.01  |
-| RandomForestClassifier         |    0.97 |              0.97 |    None  |     0.97 |       0.12  |
-| LogisticRegression             |    0.97 |              0.97 |    None  |     0.97 |       0.03  |
-| XGBClassifier                  |    0.97 |              0.97 |    None  |     0.97 |       0.47  |
-| CalibratedClassifierCV         |    0.97 |              0.97 |    None  |     0.97 |       0.61  |
-| NuSVC                          |    0.96 |              0.96 |    None  |     0.96 |       0.04  |
-| LabelPropagation               |    0.95 |              0.96 |    None  |     0.95 |       0.09  |
-| LabelSpreading                 |    0.95 |              0.96 |    None  |     0.95 |       0.19  |
-| PassiveAggressiveClassifier    |    0.95 |              0.95 |    None  |     0.95 |       0.04  |
-| Perceptron                     |    0.96 |              0.95 |    None  |     0.95 |       0.03  |
-| SGDClassifier                  |    0.95 |              0.95 |    None  |     0.95 |       0.12  |
-| LinearSVC                      |    0.95 |              0.95 |    None  |     0.95 |       0.19  |
-| RidgeClassifier                |    0.94 |              0.94 |    None  |     0.94 |       0.01  |
-| RidgeClassifierCV              |    0.94 |              0.94 |    None  |     0.94 |       0.06  |
-| LinearDiscriminantAnalysis     |    0.94 |              0.94 |    None  |     0.94 |       0.11  |
-| BaggingClassifier              |    0.94 |              0.94 |    None  |     0.94 |       0.10  |
-| NearestCentroid                |    0.89 |              0.88 |    None  |     0.89 |       0.01  |
-| BernoulliNB                    |    0.89 |              0.88 |    None  |     0.89 |       0.02  |
-| DecisionTreeClassifier         |    0.84 |              0.84 |    None  |     0.84 |       0.02  |
-| QuadraticDiscriminantAnalysis  |    0.76 |              0.79 |    None  |     0.73 |       0.03  |
-| ExtraTreeClassifier            |    0.77 |              0.77 |    None  |     0.77 |       0.01  |
-| GaussianNB                     |    0.77 |              0.77 |    None  |     0.76 |       0.01  |
-| AdaBoostClassifier             |    0.22 |              0.25 |    None  |     0.17 |       0.16  |
-| DummyClassifier                |    0.08 |              0.10 |    None  |     0.01 |       0.01  |
-
-
-Now with this information, we can work on improving the accuracy of our model, by taking few of the top performing models and tuning them.
-
-### Classifiers
-
-Classification is a supervised learning task where the goal is to predict the output of a discrete value, like a category or a label. For example, predicting whether an email is spam or not.
-
-Classifiers are similar to regressors, there are no additional tweaks needed.
 
 ```python
 from lazypredict.Supervised import LazyRegressor
@@ -158,6 +95,74 @@ print(models)
 |MLPRegressor                   |             -1.13 |     -0.89 |100.05 |       0.41  |
 |Lars                           |             -1.49 |     -1.20 |108.05 |       0.01  |
 |KernelRidge                    |             -4.91 |     -4.24 |166.55 |       0.02  |
+
+Now with this information, we can work on improving the accuracy of our model, by taking few of the top performing models and tuning them.
+
+### Classifiers
+
+Classification is a supervised learning task where the goal is to predict the output of a discrete value, like a category or a label. For example, predicting whether an email is spam or not.
+
+Classifiers are similar to regressors, there are no additional tweaks needed.
+
+We will be using a toy dataset from sklearn datasets
+
+```python
+from lazypredict.Supervised import LazyClassifier
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+
+
+# Load Digits Data
+digits = datasets.load_digits()
+
+# Do test train split
+X_train, X_test, y_train, y_test = train_test_split(digits.data, digits.target, test_size=0.2, random_state=42)
+
+# Initialize LazyClassifier
+clf = LazyClassifier(verbose=0,ignore_warnings=True, custom_metric=None)
+
+# Train and Test across multiple models
+models, predictions = clf.fit(X_train, X_test, y_train, y_test)
+```
+
+Now lets look at the output
+
+```python
+
+print(models)
+
+```
+
+|Model                           |Accuracy | Balanced Accuracy | ROC AUC  | F1 Score | Time Taken  |
+|--------------------------------|---------|-------------------|----------|----------|-------------|
+| ExtraTreesClassifier           |    0.98 |              0.98 |    None  |     0.98 |       0.14  |
+| SVC                            |    0.98 |              0.98 |    None  |     0.98 |       0.04  |
+| LGBMClassifier                 |    0.98 |              0.98 |    None  |     0.98 |       0.86  |
+| KNeighborsClassifier           |    0.97 |              0.98 |    None  |     0.97 |       0.01  |
+| RandomForestClassifier         |    0.97 |              0.97 |    None  |     0.97 |       0.12  |
+| LogisticRegression             |    0.97 |              0.97 |    None  |     0.97 |       0.03  |
+| XGBClassifier                  |    0.97 |              0.97 |    None  |     0.97 |       0.47  |
+| CalibratedClassifierCV         |    0.97 |              0.97 |    None  |     0.97 |       0.61  |
+| NuSVC                          |    0.96 |              0.96 |    None  |     0.96 |       0.04  |
+| LabelPropagation               |    0.95 |              0.96 |    None  |     0.95 |       0.09  |
+| LabelSpreading                 |    0.95 |              0.96 |    None  |     0.95 |       0.19  |
+| PassiveAggressiveClassifier    |    0.95 |              0.95 |    None  |     0.95 |       0.04  |
+| Perceptron                     |    0.96 |              0.95 |    None  |     0.95 |       0.03  |
+| SGDClassifier                  |    0.95 |              0.95 |    None  |     0.95 |       0.12  |
+| LinearSVC                      |    0.95 |              0.95 |    None  |     0.95 |       0.19  |
+| RidgeClassifier                |    0.94 |              0.94 |    None  |     0.94 |       0.01  |
+| RidgeClassifierCV              |    0.94 |              0.94 |    None  |     0.94 |       0.06  |
+| LinearDiscriminantAnalysis     |    0.94 |              0.94 |    None  |     0.94 |       0.11  |
+| BaggingClassifier              |    0.94 |              0.94 |    None  |     0.94 |       0.10  |
+| NearestCentroid                |    0.89 |              0.88 |    None  |     0.89 |       0.01  |
+| BernoulliNB                    |    0.89 |              0.88 |    None  |     0.89 |       0.02  |
+| DecisionTreeClassifier         |    0.84 |              0.84 |    None  |     0.84 |       0.02  |
+| QuadraticDiscriminantAnalysis  |    0.76 |              0.79 |    None  |     0.73 |       0.03  |
+| ExtraTreeClassifier            |    0.77 |              0.77 |    None  |     0.77 |       0.01  |
+| GaussianNB                     |    0.77 |              0.77 |    None  |     0.76 |       0.01  |
+| AdaBoostClassifier             |    0.22 |              0.25 |    None  |     0.17 |       0.16  |
+| DummyClassifier                |    0.08 |              0.10 |    None  |     0.01 |       0.01  |
+
 
 Now with this information, we can work on improving the accuracy of our model, by taking few of the top performing models and tuning them.
 
