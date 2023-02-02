@@ -1,20 +1,20 @@
 ---
 title: "U Net architecture for Image Segmentation"
-excerpt: "We will go through u-net architecture for image segmentation, and its implementation in pytorch"
-tags: 
+excerpt: "We will go through u-net architecture for image segmentation and its implementation in PyTorch."
+Tags: 
     - pytorch
     - image
     - deep learning
 ---
 ## Introduction
 
-Image segmentation is the process of labeling each and every pixel in an image. Its one of the major tasks in computer vision, majorly helping in tasks such as bio medical image segmentation, self driving cars and more.
+Image segmentation is the process of labeling each and every pixel in an image. It's one of the significant tasks in computer vision, majorly helping in tasks such as biomedical image segmentation, self-driving cars and more.
 
-In this article, we will go on exploring U-Net architecture. Along with this, we will also be implementing the same using PyTorch, with help of carvana data set from kaggle.
+In this article, we will go on exploring U-Net architecture. Along with this, we will also implement the same using PyTorch with the help of the Carvana data set from Kaggle.
 
-## U-Net Architure
+## U-Net Architecture
 
-U-Net architecture is a completely built on convolution layers. One thing with all conv layers is that, its independent of input image resolution. We can train this model on say 224x224 images and then use it on 512x512 images. This is one of the major advantages of using only conv layers.
+U-Net architecture is wholly built on convolution layers. One thing with all convolution layers is that it's independent of input image resolution. We can train this model on 224x224 images and then use it on 512x512 images. This is one of the significant advantages of using only convolution layers.
 
 The architecture is as follows:
 
@@ -32,19 +32,19 @@ It consists of 3 parts -
 
 ### Encoder
 
-Encoder path is the path where we are going to downsample the image. We will be using maxpooling layers to downsample the image. We will be using 2 conv layers for each downsampling. The first conv layer will have 64 filters and the second will have 128 filters and so onn (Of course the filter size is our wish, but here I am following the paper). We will be using 3x3 kernel size for all conv layers. In the above image, each conv layer in the encoder path is followed by a ReLU activation function.
+Encoder path is the path where we are going to downsample the image. We will be using max-pooling layers to downsample the image. We will be using 2 convolution layers for each downsampling. The first convolution layer will have 64 filters, and the second will have 128 filters (Of course, the filter size is our wish, but here I am following the paper). We will be using a 3x3 kernel size for all convolution layers. In the above image, each convolution layer in the encoder path is followed by a ReLU activation function.
 
 ### Bottleneck
 
-This is the transition part of the architure. Here the input image is passed to the decoder block, where the image is upsampled and the segmentation map is achieved.
+This is the transition part of the architecture. Here the input image is passed to the decoder block, where the image is upsampled, and the segmentation map is achieved.
 
 ### Decoder
 
-Decoder path is the path where we are going to upsample the image. This part of the network completely consists of transpose conv layers. In order to preserve the features from the input, we have skip connection from the same shaped layers from the encoder path. 
+Decoder path is the path where we are going to upsample the image. This part of the network entirely consists of transpose convolution layers. To preserve the spatial features from the input, we use skip/residual connections from the same shaped layers from the encoder path.
 
 ## PyTorch Implementation
 
-We will be using the carvana dataset from kaggle. The dataset consists of 5088 images of size 1280x1918. The dataset is already split into train and test set. We will be using the train set for training and test set for validation.
+We will be using the Carvana dataset from Kaggle. The dataset consists of 5088 images of size 1280x1918. The dataset is already split into train and test sets. We will use the train set for training and the test set for validation.
 
 ### The Dataset
 
@@ -52,11 +52,11 @@ We will be using the carvana dataset from kaggle. The dataset consists of 5088 i
 
 ![Dataset Preview](https://i.imgur.com/mu1gXAZ.jpg)  
 
-From this, we take the last 500 images for validation and the rest for training.
+We take the last 500 images for validation and the rest for training.
 
-Further, we perform data augmentaions and create new data set. We will be using albumentations library for this. I usually output the augmented images into a folder, and just scan through them to check if any abnormality is there. If everything is fine, I proceed with the training, with the augmented dataset.
+Further, we perform data augmentations and create new data set. We will be using the albumentations library for this. I usually output the augmented images into a folder and scan through them to check if any abnormality exists. I will proceed with the training with the expanded dataset if everything is fine.
 
-### Augmentation 
+### Augmentation
 
 The following are the transformations that I have used for the dataset.
 
@@ -92,7 +92,6 @@ def augmentation(image, mask):
 ```
 
 ![Augmentation In Process](https://i.imgur.com/Gj699xM.png)  
-
 
 ### Dataset Creation
 
@@ -137,22 +136,23 @@ class image_dataset(Dataset):
         return image, mask
 ```
 
-Now our dataset class is ready to be used in the dataloader.
+Now our dataset class is ready to be used in the DataLoader.
 
 ### The Model
 
-This architure is a completely convolutional architure. 
+This architecture is an entirely convolutional architecture.
 
-As mentioned previously, we have 3 parts in the architure - Encoder, Bottleneck and Decoder.
+As mentioned previously, we have 3 parts in the architecture - Encoder, Bottleneck and Decoder.
 
 Importing the required libraries.
+
 ```python
 import torch
 import torch.nn as nn
 import torchvision.transforms.functional as TF
 ```
 
-Each module in the architure, is a double conv block. We will create that here.
+Each module in the architecture is a double convolution block. We will create that here.
 
 ```python
 class doubleConv(nn.Module):
@@ -172,12 +172,11 @@ class doubleConv(nn.Module):
 
 Now the actual model.
 
-
 Init method
 
-For the encoder and the decoder part, we create a empty list, and append the layers to it using a for loop.
+We create an empty list and append the layers to it using a for loop for the encoder and decoder parts.
 
-The features size is given as a input param to the class.
+The feature size is given as an input param to the class.
 
 Since the input image is RGB, in channels = 3. Output is just binary, so out channels = 1. (Its either car or not car)
 
@@ -208,13 +207,13 @@ class unet(nn.Module):
 
 Forward method
 
-In the original paper, the skip connections are present. For that, initially we create a empty list, and append the layers to it.
+In the original paper, skip connections are present. For that, initially, we create an empty list and append the layers to it.
 
-Encoder step: Since in the init method, we defined encoder as a list, we can loop through it. We pass the input image through each layer, and append the output to the skip connection list.
+Encoder step: Since in the init method, we defined encoder as a list, we can loop through it. We pass the input image through each layer and append the output to the skip connection list.
 
-Then the output is passed through the bottleneck layer. At this step, the skip connections layer is reversed. This is because in the decoder block, we go from the bottleneck layer to the first layer.
+Then the output is passed through the bottleneck layer. At this step, the skip connections layer is reversed. This is because, in the decoder block, we go from the bottleneck layer to the first layer.
 
-Decoder step: We loop through the decoder list, and pass the output through each layer. We also pass the skip connection layer through each layer. We concatenate the output of the decoder layer and the skip connection layer. This is the skip connection.
+Decoder step: We loop through the decoder list, and pass the output through each layer. We also give the skip connection layer through each layer. We concatenate the output of the decoder layer and the skip connection layer. This is the skip connection.
 
 Then finally, we pass the output into the output convolution layer, which will return the segmentation mask.
 
@@ -257,7 +256,6 @@ from torch.utils.data import DataLoader
 import torchvision
 ```
 
-
 Loading and saving checkpoints
 
 ```python
@@ -270,7 +268,7 @@ def load_checkpoint(checkpoint, model):
     model.load_state_dict(checkpoint["state_dict"])
 ```
 
-Dataloaders
+Data loaders
 
 ```python
 def get_loaders(train_dir, train_mask_dir, val_dir, val_mask_dir, batch_size, num_workers=4, pin_memory=True, transform=None):
@@ -327,7 +325,7 @@ def check_accuracy(loader, model, device="cuda"):
     model.train()
 ```
 
-Function to save batch wise preditctions
+Function to save batch-wise predictions
 
 ```python
 def save_predictions(
@@ -406,7 +404,7 @@ transform = A.Compose(
 )
 ```
 
-Initialize the model, loss function, optimizer and dataloader
+Initialize the model, loss function, optimizer and DataLoader.
 
 ```python
 model = UNET(in_channels=3, out_channels=1).to(DEVICE)
@@ -458,7 +456,7 @@ Doing the actual training
 
 # Check initial accuracy
 check_accuracy(val_loader, model, device=DEVICE)
-# Accuracy might be high, because its all random, and majority of the image is background. That is why we look at die score
+# Accuracy might be high because it's all random, and most images are as background. That is why we look at die score
 
 # Using mixed precision training
 scaler = torch.cuda.amp.GradScaler()
@@ -483,37 +481,34 @@ for epoch in range(NUM_EPOCHS):
     )
 ```
 
-We got around 0.7 as die score.
+We got around 0.7 as the die score.
 
 ![Training Output](https://i.imgur.com/112aDRv.png)  
 
-
-Sample test genereted by save predictions function
+Sample test generated by save predictions function
 
 Original
 
 ![picture 4](https://i.imgur.com/1cUXbJW.png)  
 
-
 Its prediction
 
 ![picture 5](https://i.imgur.com/0IePRiT.png)  
 
-
 ## Making it better
 
-Die score of 0.7 is not that great. You can see it in the predictions that the segmentation is not very perfect. This can be improved by the following ways:
+A die score of 0.7 could be better. You can see in the predictions that the segmentation could be better. This can be improved in the following ways:
 
- * Using higher resolution images
- * Using LrOnPlateau
- * There are ways to use pretrained ResNet, VGG etc models in the model, instead of encoder and decoder. This will make the model better.
- * Increasing layers
+* Using higher-resolution images
+* Using LrOnPlateau
+* There are ways to use pre-trained ResNet, VGG etc models in the model, instead of encoder and decoder. This will make the model better.
+* Increasing layers
 
 ## Conclusion
 
-We went through U-Net architure and implemented the same given in the paper. We also trained the model on a dataset, and saw the ways to improve the accuracy.
+We went through U-Net architecture and implemented the same given in the paper. We also trained the model on a dataset and saw ways to improve the accuracy.
 
-You can find my repo here - https://github.com/SuperSecureHuman/ML-Experiments/tree/main/U-Net-Image_Segmentation
+You can find my repo here - <https://github.com/SuperSecureHuman/ML-Experiments/tree/main/U-Net-Image_Segmentation>
 
 ## References
 
