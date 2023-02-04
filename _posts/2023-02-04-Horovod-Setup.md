@@ -2,12 +2,16 @@
 
 title: "Setting up Horovod on cluster"
 excerpt: "Setting and running Horovod on a PBS managed cluster"
-Tags:
+tags:
     - pytorch
     - deep learning
     - horovod
     - cluster
 ---
+
+I have access to a cluster with five nodes, each with a V100 GPUs. It uses PBS for job scheduling. Here is how I set up Horovod on the cluster.
+
+Other options for multi-worker training include using PyTorch's DistributedDataParallel (DDP)/TorchRun, Tensorflow/Keras, and DeepSpeed. I'll Cover those in a separate post and link them here.
 
 ## 0. Initial ENV setup
 
