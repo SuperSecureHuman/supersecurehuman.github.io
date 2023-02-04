@@ -512,6 +512,6 @@ You can find my repo here - <https://github.com/SuperSecureHuman/ML-Experiments/
 
 ## References
 
-    * [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
-    * [Carvana Dataset](https://www.kaggle.com/c/carvana-image-masking-challenge)
-    * [Dataloaders for Custom Dataset](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html)
+* [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
+* [Carvana Dataset](https://www.kaggle.com/c/carvana-image-masking-challenge)
+* [Dataloaders for Custom Dataset](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html)
