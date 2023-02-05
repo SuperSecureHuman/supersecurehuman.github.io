@@ -255,9 +255,9 @@ SSH was successful into all the remote hosts.
    :
 [1]<stdout>:Train Epoch: 1 [29440/30000 (98%)] Loss: 0.444777
 [0]<stdout>:Train Epoch: 1 [29440/30000 (98%)] Loss: 0.295054
-[0]<stderr>:/home/user/miniconda3/envs/sknet/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+[0]<stderr>:/home/user/miniconda3/envs/env/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
 [0]<stderr>:  warnings.warn(warning.format(ret))
-[1]<stderr>:/home/user/miniconda3/envs/sknet/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
+[1]<stderr>:/home/user/miniconda3/envs/env/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='sum' instead.
 [1]<stderr>:  warnings.warn(warning.format(ret))
 [0]<stderr>:/home/user/superSecureHuman/horovod/pytorch_mnist.py:120: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
 [0]<stderr>:  tensor = torch.tensor(val)
