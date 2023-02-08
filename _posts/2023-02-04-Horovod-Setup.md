@@ -7,20 +7,22 @@ tags:
     - deep learning
     - horovod
     - cluster
+    - tensorflow
 ---
 
 I have access to a cluster with five nodes, each with a V100 GPUs. It uses PBS for job scheduling. Here is how I set up Horovod on the cluster.
 
 Other options for multi-worker training include using PyTorch's DistributedDataParallel (DDP)/TorchRun, Tensorflow/Keras, and DeepSpeed. I'll Cover those in a separate post and link them here.
 
+This post only deals with installing and checking if Horovod is working. I'll cover the actual training in a separate post.
+
 ## 0. Initial ENV setup
 
 Make sure to have pytorch (for CUDA version 11.6) in a conda environment. Everything will be in the conda environment.
 
-Python Version Tested = 3.8
+Python Version Tested = 3.8.10
 
 ```bash
-
 module load cuda11.6/toolkit/11.6.2
 module load cudnn8.4/8.4
 
@@ -48,13 +50,17 @@ I recommend maintaining `lib` and `include` folders in your home directory and a
 
 Use NCCL Version 2.16.2.1
 
-The Nvidia website states that it is for CUDA 11, but the official build for CUDA 11.6 has stub library loading issues, which will have to be solved by manually compiling NCCL, which may cause issues. Currently, 2.16.2.1 works without any issues for CUDA 11.6.2
+The Nvidia website states that it is for CUDA 11, but the official build for CUDA 11.6 has stub library loading issues, which will have to be solved by manually compiling NCCL, which may cause problems. Currently, 2.16.2.1 works without any problems for CUDA 11.6.2
 
 Save the NCCL libraries in the home's `lib` and `include` folders.
 
-## 2. Horovod Install [PyTorch]
+## 2. Horovod Install
 
-Install only for PyTorch because TensorFlow needs FlatBuffers, which have to be dealt with seperately. The guide will be updated once that's done.
+If you wish to build for Tensorflow, then make sure you have g++ version 8 or higher for Tensorflow version 2.10 and higher. If you have a lower version of g++, you can stick with an older version of Tensorflow. I'll be using Tensorflow 2.8 here.
+
+Additionally, install protobuf 3.20.0 with `pip install protobuf==3.20.0`
+
+For pytorch, the requirement is g++ version 5 or higher.
 
 Mxnet - Ignored
 
@@ -63,10 +69,12 @@ MPI needs some additional checking because it kept throwing errors.
 GLOO backend will be used for communications
 
 ```bash
-HOROVOD_NCCL_INCLUDE=/home/user/include/ HOROVOD_NCCL_LIB=/home/user/lib/ HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_MPI=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_MXNET=1 HOROVOD_WITHOUT_TENSORFLOW=1 pip install --no-cache-dir horovod[pytorch]
+HOROVOD_NCCL_INCLUDE=/home/user/include/ HOROVOD_NCCL_LIB=/home/user/lib/ HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITHOUT_MPI=1 HOROVOD_WITH_PYTORCH=1 HOROVOD_WITHOUT_MXNET=1 HOROVOD_WITH_TENSORFLOW=1 pip install --no-cache-dir horovod
 ```
 
-More info on the flags used here, can be found in the offical docs
+Make sure to modify the flags based on your requirements. For example, if you want to use only pytorch and not with Tensorflow, then replace the `HOROVOD_WITH_TENSORFLOW=1` flag with `HOROVOD_WITHOUT_TENSORFLOW=1`.
+
+More info on the flags used here can be found in the official docs
 
 [Horovod - Install](https://github.com/horovod/horovod/blob/master/docs/install.rst#environment-variables)
 
@@ -85,7 +93,7 @@ horovodrun --check-build
 Horovod v0.27.0:
 
 Available Frameworks:
-    [ ] TensorFlow
+    [X] TensorFlow
     [X] PyTorch
     [ ] MXNet
 
@@ -184,6 +192,12 @@ horovodrun --verbose  --gloo --gloo-timeout-seconds=90  --network-interface="ib0
 ```
 
 Here, I have piped the output and the error to a file.
+
+The training script used is from official horovod examples.
+
+Pytorch - <https://github.com/horovod/horovod/blob/master/examples/pytorch/pytorch_mnist.py>
+
+Tensorflow - <https://github.com/horovod/horovod/blob/master/examples/tensorflow2/tensorflow2_keras_mnist.py>
 
 ## 7. Output
 
