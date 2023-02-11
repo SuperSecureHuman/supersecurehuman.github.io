@@ -140,6 +140,8 @@ Here are some more results:
 
 The results speaks for themselves :)
 
+The notebooks used can be found here - [Speedster](https://github.com/SuperSecureHuman/ML-Experiments/tree/main/Speedster)
+
 ## How does it do whatever it does?
 
 Generally, you would try each optimization step one by one and store all the results.
