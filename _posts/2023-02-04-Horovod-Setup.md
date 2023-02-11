@@ -22,7 +22,9 @@ Make sure to have pytorch (for CUDA version 11.6) in a conda environment. Everyt
 
 Python Version Tested = 3.8.10
 
-You have to load CUDA 10.1 first then CUDA 11.6 for tensorflow. This is to ensure that Tensorflow can find CuBlasLT from CUDA 10.1. If you load CUDA 11.6 first, then Tensorflow will use CuBlasLT from CUDA 11.6, which is not compatible Tensorflow.
+Note for Tensorflow -
+
+You have to load CUDA 10.1 first then CUDA 11.6 for tensorflow. This is to ensure that Tensorflow can find `cublaslt` from CUDA 10.1. If you load CUDA 11.6 first, then Tensorflow will use `cublaslt` from CUDA 11.6, which is not compatible with Tensorflow.
 
 Evem in the training phase, you have to load the modules in the given order, otherwise, you'll get an error.
 
