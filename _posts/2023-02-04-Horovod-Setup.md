@@ -29,7 +29,7 @@ You have to load CUDA 10.1 first then CUDA 11.6 for tensorflow. This is to ensur
 Evem in the training phase, you have to load the modules in the given order, otherwise, you'll get an error.
 
 ```bash
-module load cuda10.1/toolkit/10.1.243
+module load cuda10.2/toolkit/10.2.89
 module load cuda11.6/toolkit/11.6.2
 module load cudnn8.4/8.4
 
