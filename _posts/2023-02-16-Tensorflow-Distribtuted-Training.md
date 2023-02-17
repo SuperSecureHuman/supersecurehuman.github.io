@@ -1,4 +1,11 @@
-# Note
+---
+title: "Distributed Training With Tensorflow"
+excerpt: "Leveraging Multi Worker Mirrored Strategy in TensorFlow to train models across multiple workers using data parallelism."
+tags:
+    - deep learning
+    - tensorflow
+    - cluster
+---
 
 ## Tensorflow MultiWorkerMirroredStrategy
 
@@ -241,3 +248,9 @@ with strategy.scope():
 #model.fit(dataset, epochs=3, steps_per_epoch=70)
 multi_worker_model.fit(multi_worker_dataset, epochs=3, steps_per_epoch=35)
 ```
+
+### Running
+
+Just set the environment variable `TF_CONFIG` and run the script in each node.
+
+More robust ways to launch training will be updated later.
