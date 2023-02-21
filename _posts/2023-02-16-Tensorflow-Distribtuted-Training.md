@@ -249,8 +249,85 @@ with strategy.scope():
 multi_worker_model.fit(multi_worker_dataset, epochs=3, steps_per_epoch=35)
 ```
 
-### Running
+### Running with PBS
 
-Just set the environment variable `TF_CONFIG` and run the script in each node.
+Script for 1st Node
 
-More robust ways to launch training will be updated later.
+``` bash
+# !/bin/bash -x
+
+#PBS -l mem=16gb
+#PBS -l nodes=node01:ppn=8
+#PBS -q workq
+
+# EXECUTION SEQUENCE
+
+cd $PBS_O_WORKDIR
+
+#module purge
+#module load cuda10.1/toolkit/10.1.243
+#module load cuda11.6
+#module load cudnn8.4
+
+# activate the conda environment
+
+source /home/user/miniconda3/bin/activate
+conda activate env
+
+export NCCL_SOCKET_IFNAME=ib0
+export NCCL_DEBUG=TRACE
+
+export TF_CONFIG='{"cluster": {"worker": ["node01:12345", "node03:23456"]}, "task": {"type": "worker", "index": 0}}'
+
+python3 script.py
+
+```
+
+Script for 2nd Node
+
+``` bash
+
+# !/bin/bash -x
+
+#PBS -l mem=16gb
+#PBS -l nodes=node03:ppn=8
+#PBS -q workq
+
+# EXECUTION SEQUENCE
+
+cd $PBS_O_WORKDIR
+
+#module purge
+#module load cuda10.1/toolkit/10.1.243
+#module load cuda11.6
+#module load cudnn8.4
+
+# activate the conda environment
+
+source /home/user/miniconda3/bin/activate
+conda activate env
+
+export NCCL_SOCKET_IFNAME=ib0
+export NCCL_DEBUG=TRACE
+
+export TF_CONFIG='{"cluster": {"worker": ["node01:12345", "node03:23456"]}, "task": {"type": "worker", "index": 1}}'
+
+python3 script.py
+```
+
+Changes across both node scripts
+
+  * `nodes=node01:ppn=8` and `nodes=node03:ppn=8` should be changed to the nodes you are using
+  * `TF_CONFIG` the worker index to be updated
+
+Make sure that both nodes are free before you submit a job. If you are using a GPU, make sure that the GPU is free.
+
+You can submit both scripts at the same time with the following command
+
+## Furthermore references
+
+* [Official Tensorflow Distributed Docs](https://www.tensorflow.org/api_docs/python/tf/distribute/MultiWorkerMirroredStrategy)
+
+* [TensorFlow Distributed Guide](https://www.tensorflow.org/guide/distributed_training)
+
+* [Offical Keras Distributed Docs](https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras)
