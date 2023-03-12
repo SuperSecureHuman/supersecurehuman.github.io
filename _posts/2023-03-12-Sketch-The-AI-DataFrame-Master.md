@@ -3,6 +3,9 @@ title: "Unleashing the Power of AI in Data Analysis with Sketch"
 excerpt: "Explore and Analyze Your Data with Sketch: In this blog post, we will explore Sketch - an AI-powered DataFrame assistant for Python that uses data sketching to quickly summarize large amounts of data. With Sketch, users can explore their data and receive code-writing prompts without the need for complex coding. "
 tags:
     - pandas
+header:
+    overlay_image: "https://i.imgur.com/7BIfniv.png"
+    overlay_filter: 0.5
 ---
 Have you heard about the latest buzz in the AI world? Everyone is talking about the power of AI and large language models to create cool interactive chatbots like ChatGPT. Now, you can use these models directly from a Python library within a Jupyter Notebook!
 
