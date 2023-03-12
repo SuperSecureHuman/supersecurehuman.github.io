@@ -4,8 +4,8 @@ excerpt: "Explore and Analyze Your Data with Sketch: In this blog post, we will 
 tags:
     - pandas
 header:
-    overlay_image: "https://i.imgur.com/7BIfniv.png"
-    overlay_filter: 0.5
+    overlay_image: "https://i.imgur.com/jZO9eHs.png"
+    overlay_filter: 0.7
 ---
 Have you heard about the latest buzz in the AI world? Everyone is talking about the power of AI and large language models to create cool interactive chatbots like ChatGPT. Now, you can use these models directly from a Python library within a Jupyter Notebook!
 
