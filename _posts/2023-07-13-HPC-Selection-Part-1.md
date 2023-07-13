@@ -13,7 +13,7 @@ header:
 
 Greetings, fellow HPC enthusiasts! Today, I'm excited to kick off a series of blog posts that delve into the fascinating world of high-performance computing (HPC) nodes. As a passionate researcher myself, I've spent countless hours exploring the intricacies of CPU, motherboard, and memory selection for optimal performance. In this multi-part series, I'll share my findings, insights, and personal experiences on choosing the best components for your HPC system. So, grab a cup of coffee, join me on this research journey, and let's uncover the secrets behind building a robust HPC node. Together, we'll navigate the complexities and empower ourselves with knowledge to unlock the true potential of HPC.
 
-![Jump on in](https://i.imgur.com/0dYjX9U.png)
+![Jump on in](https://i.imgur.com/0dYjX9Ul.png)
 
 ## 1. Introduction
 
@@ -29,7 +29,7 @@ The selection of CPU, memory, and motherboard components is intertwined, necessi
 
 ## 2. Understanding HPC Workloads - An Academic Perspective
 
-![Is it someone working on something?](https://i.imgur.com/H5msCKJ.png)
+![Is it someone working on something?](https://i.imgur.com/H5msCKJl.png)
 
 To make informed decisions regarding component selection for HPC nodes, it is crucial to have a solid understanding of different HPC workloads and their specific requirements. In this research perspective, we will delve into the workload categories most relevant to data analysis, machine learning, bioinformatics, and mathematical modeling while acknowledging the importance of other workload types.
 
@@ -53,7 +53,7 @@ Additionally, if you intend to tailor your HPC system to a particular software s
 
 ## 3. CPU Selection
 
-![Printing Hello on 32 Cores](https://i.imgur.com/onho9oq.jpg)
+![Printing Hello on 32 Cores](https://i.imgur.com/onho9oql.jpg)
 
 Selecting the right CPU is paramount when constructing a high-performance computing (HPC) node. As the brain of your system, the CPU's role in executing computations and driving overall performance cannot be overstated. When choosing a CPU for your HPC node, consider the following key factors:
 
@@ -81,7 +81,7 @@ Additionally, Intel has developed OneAPI, a powerful suite of tools designed to 
 
 ## 4. Motherboard Selection
 
-![Where are my portsss](https://i.imgur.com/QOeYl5F.png)
+![Where are my portsss??](https://i.imgur.com/W7NZqvsl.png)
 
 Selecting the right motherboard for your high-performance computing (HPC) server is a crucial step that impacts the overall functionality and compatibility of your system. Consider the following key factors when choosing a motherboard for your HPC server:
 
@@ -105,7 +105,7 @@ On-board Networking: Assess the on-board networking capabilities of the motherbo
 
 ## 5. Memory Selection
 
-![More RAM](https://i.imgur.com/Mfru1pJ.png)
+![More RAM](https://i.imgur.com/Mfru1pJl.png)
 
 Selecting the right memory for your high-performance computing (HPC) node is crucial for achieving optimal performance and efficient data processing. When choosing memory for your HPC system, consider the following key factors:
 
@@ -125,7 +125,7 @@ Memory Latency: Memory latency refers to the time taken for the CPU to access da
 
 ## 6. Compatibility and Scalability
 
-![May I....](https://i.imgur.com/5DwWOjb.png)
+![May I....](https://i.imgur.com/5DwWOjbl.png)
 
 Ensuring compatibility and scalability are crucial aspects when selecting components for your high-performance computing (HPC) system. Consider the following key considerations:
 
@@ -159,4 +159,4 @@ Seek Expert Advice: Seek advice from experts or experienced individuals in the f
 
 In conclusion, building a high-performance computing (HPC) system requires careful consideration of various factors, including component selection, compatibility, scalability, and budget considerations. By understanding the specific requirements of your HPC workloads and conducting thorough research, you can make informed decisions to optimize performance and efficiency. Choosing the right CPU, motherboard, and memory components tailored to your workload types, while ensuring compatibility and scalability, is essential. Additionally, establishing a realistic budget and prioritizing the performance-to-cost ratio allows for a cost-effective HPC system. With these considerations in mind, you can unlock the full potential of HPC and empower yourself with a robust and efficient computing platform.
 
-![Image](https://i.imgur.com/iFJw82t.png)
+![Image](https://i.imgur.com/iFJw82tl.png)
