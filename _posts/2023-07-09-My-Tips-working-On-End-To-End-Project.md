@@ -11,7 +11,9 @@ header:
 
 Imagine this scenario: I find myself deeply immersed in an incredibly fascinating research project, fully immersing myself in the mind-boggling realm of deep learning. Can you believe it? I've trained a deep learning model well over a hundred times! It's mind-blowing, isn't it? But let me tell you, it wasn't a walk in the park by any means. I had to experiment with an abundance of hyperparameters, more than you can imagine, and explore various architectures like a passionate scientist on a quest.
 
-Take a look at this snapshot I captured from my Weights & Biases Dashboard. It offers a glimpse into the excitement and intensity of the journey: ![Screenshot from Weights & Biases Dashboard](https://i.imgur.com/RQJtVuu.png)
+Take a look at this snapshot I captured from my Weights & Biases Dashboard. It offers a glimpse into the excitement and intensity of the journey: 
+
+![Screenshot from Weights & Biases Dashboard](https://i.imgur.com/RQJtVuu.png)
 
 However, amidst this rollercoaster ride, I stumbled upon some invaluable workflow tips that have truly revolutionized my experience. These little gems of wisdom have become a game-changer, streamlining my life during these exhilarating times. Believe me, they possess the potential to elevate your research endeavors into a thrilling adventure of discovery. So fasten your seatbelts, my friends, and prepare to enhance your deep learning skills with these remarkable tricks!
 
