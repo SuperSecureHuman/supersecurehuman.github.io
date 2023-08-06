@@ -71,13 +71,14 @@ While hardware accelerators shine in certain specialized tasks, CPUs continue to
 - May not be the best fit for certain complex computations.
 - May not be the most power-efficient option for specific tasks.
 
-## Graphic Processing Unit (GPU) - The Powerhouses of Parallelism (and not so graphicallly used anymore)
+## Graphic Processing Unit (GPU)
 
-### Nvidia and AMD: The Titans of GPU Technology
+**Nvidia and AMD: The Titans of GPU Technology**
 
 When we delve deeper into the specific offerings of Nvidia and AMD in the realm of Graphics Processing Units (GPUs) for High-Performance Computing (HPC), we find that each company has its unique strengths and focus areas.
 
 **Nvidia:**
+
 Nvidia has established itself as a trailblazer in the GPU market, particularly for HPC applications. The company's dedication to innovation has led to the development of various GPU architectures catering to different sectors. For gaming enthusiasts and professionals, Nvidia's GeForce series offers unparalleled graphics performance, delivering stunning visuals and smooth gameplay experiences. On the other hand, the Quadro series targets the professional graphics and content creation market, providing precise rendering and visualization capabilities for tasks like CAD, 3D modeling, and video editing.
 
 ![Nvidia GPU](https://i.imgur.com/p6aWAzT.jpg){: .align-center}
@@ -85,6 +86,7 @@ Nvidia has established itself as a trailblazer in the GPU market, particularly f
 However, Nvidia's true dominance in the HPC arena comes through its Tesla series of GPUs. These high-performance computing accelerators are designed to tackle the most demanding computational workloads. Nvidia's CUDA (Compute Unified Device Architecture) programming model has become a standard for GPU computing. It empowers developers to efficiently harness the massive parallel processing capabilities of Nvidia GPUs, unlocking unprecedented performance for scientific simulations, data analytics, artificial intelligence, and other computationally intensive tasks. With a robust ecosystem and extensive developer support, Nvidia has solidified its position as a leading choice for HPC applications.
 
 **AMD:**
+
 AMD has emerged as a fierce competitor in the GPU market, continuously pushing the boundaries of performance and energy efficiency. The Radeon series, based on the RDNA architecture, has gained a reputation for delivering impressive graphics capabilities across various consumer and professional applications. AMD's focus on energy efficiency has resulted in GPUs that offer significant performance gains while consuming less power, making them attractive for both desktop and mobile devices.
 
 ![AMD GPU](https://i.imgur.com/46bfcug.jpg){: .align-center}
@@ -100,7 +102,7 @@ Customers in the HPC space now have more choices than ever before, with each com
 
 In conclusion, Nvidia and AMD are the two dominant players in the HPC GPU market, each showcasing impressive achievements in their respective GPU architectures. Nvidia's CUDA technology has solidified its position as a leader in the field, particularly for complex scientific simulations and AI applications. On the other hand, AMD's focus on energy efficiency and its ROCm platform have enabled it to carve a niche in the HPC market, appealing to researchers and data scientists seeking advanced GPU capabilities for their workloads. As technology continues to progress, the battle for GPU supremacy will undoubtedly drive further innovations and propel the field of high-performance computing into new frontiers.
 
-### Intel Xe: A New Challenger in the GPU Market
+**Intel Xe: A New Challenger in the GPU Market**
 
 Intel's entry into the GPU space has brought significant attention and excitement to the computing industry. As a long-standing leader in CPU technology, Intel's foray into graphics processing represents a strategic move to expand its presence and competitiveness in the market.
 
@@ -124,7 +126,7 @@ Intel's entry into the GPU market has intensified the competition among major pl
 
 The competition is driving each company to innovate and invest in cutting-edge technologies, benefiting consumers and businesses alike. With Intel's Xe GPUs vying for a share in the GPU market, customers can expect to see more diverse options and advancements in graphics and high-performance computing capabilities.
 
-### GPU's Power in HPC and Scientific Scenarios
+**GPU's Power in HPC and Scientific Scenarios**
 
 The integration of GPUs into High-Performance Computing (HPC) and scientific scenarios has revolutionized the way researchers and engineers approach complex problems. The parallel processing capabilities of GPUs have unlocked immense computational power, enabling tasks that were once impractical or time-consuming to be completed with unprecedented speed and efficiency. Let's delve into some of the most prominent applications of GPUs in this domain:
 
@@ -143,7 +145,7 @@ Bioinformatics, the study of biological data through computational analysis, is 
 5. **Computational Fluid Dynamics (CFD):**
 CFD simulations involve solving complex equations to study fluid flow and heat transfer in various engineering applications. These simulations are crucial for optimizing designs and evaluating performance in fields like aerospace, automotive, and environmental engineering. GPUs provide the necessary computational horsepower to expedite these simulations, offering real-time or near-real-time results. This not only accelerates the design process but also allows engineers to explore numerous design iterations rapidly, leading to more robust and efficient systems.
 
-### Pros of GPUs
+**Pros of GPUs**
 
 - **Massive Parallelism:** GPUs excel at parallel processing, providing significant speed-ups for parallelizable tasks.
 - **Compute Power:** Their dedicated design for computation-intensive tasks offers outstanding performance.
@@ -155,7 +157,7 @@ CFD simulations involve solving complex equations to study fluid flow and heat t
 - **Compatibility:** GPUs are compatible with a wide range of software applications and programming languages.
 - **Scalability:** GPUs can be scaled to meet the demands of large-scale HPC workloads.
 
-### Cons of GPUs
+**Cons of GPUs**
 
 - **Specific Workloads:** GPUs perform best for tasks that can be parallelized effectively, but may not be the best fit for all types of computations.
 - **Complex Programming:** Developing for GPUs can be more challenging due to the need for specialized parallel programming techniques.
