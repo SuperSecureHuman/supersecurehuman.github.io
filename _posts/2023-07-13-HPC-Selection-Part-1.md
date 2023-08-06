@@ -1,6 +1,6 @@
 ---
 title: "Maximizing HPC Potential: Unveiling the Best CPU, Motherboard, and Memory [Part 1]"
-excerpt: "Prepare to harness the immense power of high-performance computing (HPC) nodes. In Part 1 of our comprehensive series, we delve into the art of choosing the ultimate CPU, motherboard, and memory configuration. Explore the intricate details and considerations that will propel your HPC endeavors to new heights."
+excerpt: "Prepare to harness the immense power of high-performance computing (HPC) nodes. In Part 1 of my comprehensive series, I delve into the art of choosing the ultimate CPU, motherboard, and memory configuration. Explore the intricate details and considerations that will propel your HPC endeavors to new heights."
 tags:
     - hpc
     - cluster
@@ -15,7 +15,7 @@ Greetings, fellow HPC enthusiasts! Today, I'm excited to kick off a series of bl
 
 ![Jump on in](https://i.imgur.com/0dYjX9Ul.png){: .align-center}
 
-## 1. Introduction
+## Introduction
 
 Building an HPC node requires meticulous consideration of component selection to achieve peak performance and efficiency. The CPU, memory, and motherboard serve as the cornerstone of any HPC system, demanding careful evaluation and thoughtful choices.
 
@@ -27,7 +27,7 @@ Acting as the central hub, the motherboard establishes seamless connectivity amo
 
 The selection of CPU, memory, and motherboard components is intertwined, necessitating their cohesive interplay to harness each other's distinctive features and capabilities effectively. By making informed decisions and ensuring compatibility, we can fashion an HPC system that maximizes computational power, accelerates data processing, and seamlessly meets the rigorous demands of scientific research, simulations, data analytics, and other computationally intensive tasks.
 
-## 2. Understanding HPC Workloads - An Academic Perspective
+## Understanding HPC Workloads - An Academic Perspective
 
 ![Is it someone working on something?](https://i.imgur.com/H5msCKJl.png){: .align-center}
 
@@ -51,7 +51,7 @@ While focusing on data analysis, machine learning, bioinformatics, and mathemati
 
 Additionally, if you intend to tailor your HPC system to a particular software suite, consulting the software's documentation for hardware recommendations is advisable. Some software suites make use of specific CPU features to accelerate the workload, emphasizing the need to prioritize compatible hardware configurations for optimal performance and efficiency.
 
-## 3. CPU Selection
+## CPU Selection
 
 ![Printing Hello on 32 Cores](https://i.imgur.com/onho9oql.jpg){: .align-center}
 
@@ -79,7 +79,7 @@ Here are some examples of popular CPUs for HPC nodes:
 
 Additionally, Intel has developed OneAPI, a powerful suite of tools designed to optimize software performance on Intel Hardware. With a comprehensive set of resources, developers can accelerate their programs using this platform. For more information, you can visit the official website at <https://www.oneapi.io/>.
 
-## 4. Motherboard Selection
+## Motherboard Selection
 
 ![Where are my portsss??](https://i.imgur.com/W7NZqvsl.png){: .align-center}
 
@@ -103,7 +103,7 @@ PCI Ports: Evaluate the number and type of PCIe slots available on the motherboa
 
 On-board Networking: Assess the on-board networking capabilities of the motherboard. Look for integrated Ethernet ports with high-speed standards like 10 Gigabit Ethernet or even higher if needed. This ensures efficient communication within your HPC cluster or with external resources.
 
-## 5. Memory Selection
+## Memory Selection
 
 ![More RAM](https://i.imgur.com/Mfru1pJl.png){: .align-center}
 
@@ -123,7 +123,7 @@ Overclocking Potential: If you have experience with overclocking or if your HPC 
 
 Memory Latency: Memory latency refers to the time taken for the CPU to access data from memory. Lower memory latency can improve overall system performance. Look for memory modules with lower CAS latency (CL) values to reduce memory latency and enhance performance.
 
-## 6. Compatibility and Scalability
+## Compatibility and Scalability
 
 ![May I....](https://i.imgur.com/5DwWOjbl.png){: .align-center}
 
@@ -137,7 +137,7 @@ Documentation and Specifications: Consult the documentation and specifications p
 
 Future Planning: Consider your long-term goals and projected needs for your HPC system. Anticipate future requirements for CPU performance, memory capacity, storage, and expansion capabilities. Select components that align with your future plans to avoid the need for costly upgrades or replacements down the line.
 
-## 7. Budget Considerations
+## Budget Considerations
 
 ![Money?](https://media.tenor.com/Q-CSIC5TmEEAAAAd/we-have-infinite-cash-rich.gif){: .align-center}
 
@@ -155,7 +155,7 @@ Total Cost of Ownership and Trade-offs: Evaluate the total cost of ownership (TC
 
 Seek Expert Advice: Seek advice from experts or experienced individuals in the field who can provide insights into cost-effective component options, alternative approaches, and potential cost-saving strategies based on their knowledge and experience.
 
-## 8. Conclusion
+## Conclusion
 
 In conclusion, building a high-performance computing (HPC) system requires careful consideration of various factors, including component selection, compatibility, scalability, and budget considerations. By understanding the specific requirements of your HPC workloads and conducting thorough research, you can make informed decisions to optimize performance and efficiency. Choosing the right CPU, motherboard, and memory components tailored to your workload types, while ensuring compatibility and scalability, is essential. Additionally, establishing a realistic budget and prioritizing the performance-to-cost ratio allows for a cost-effective HPC system. With these considerations in mind, you can unlock the full potential of HPC and empower yourself with a robust and efficient computing platform.
 

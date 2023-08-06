@@ -5,6 +5,4 @@ Gemfile.lock
 vendor
 .bundle
 temp.txt
-_posts/insights.md
-_posts/2023-01-21-DDP-Torch.md
 .vscode/settings.json
