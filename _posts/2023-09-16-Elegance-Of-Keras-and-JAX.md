@@ -9,6 +9,10 @@ header:
     overlay_filter: 0.5
 ---
 
+So, I gave a talk on JAX with Keras for Keras Community day, Coimbatore. I am putting the essence of my talk here.
+
+The codes and the presentation can be found here - <https://github.com/SuperSecureHuman/keras-day>
+
 ## Keras Core: The Basics
 
 Keras Core is a newer version of Keras. It can work with different systems like JAX, TensorFlow, and PyTorch. This means developers can easily change the system they're using without starting from scratch.
@@ -89,9 +93,9 @@ When Keras Core and JAX come together, it's like two good friends teaming up. Th
 
 ## Conclusion
 
-Absolutely, the interplay between user-centric design and powerful computation has often been a balancing act in the world of deep learning. While some tools have sacrificed one for the other, Keras Core and JAX stand as exemplars of how the two can coexist harmoniously.
+The interplay between user-centric design and powerful computation has often been a balancing act in the world of deep learning. While some tools have sacrificed one for the other, Keras Core and JAX stand as exemplars of how the two can coexist harmoniously.
 
-Keras, with its mantra of "Deep Learning for Humans," has consistently strived to simplify the complexity of neural networks, making them more accessible to a wider audience. Its evolution, particularly the reintroduction of its multi-backend nature, shows a commitment to versatility without compromising on its core philosophy.
+Keras, with its motto of "Deep Learning for Humans," has consistently strived to simplify the complexity of neural networks, making them more accessible to a wider audience. Its evolution, particularly the reintroduction of its multi-backend nature, shows a commitment to versatility without compromising on its core philosophy.
 
 JAX, meanwhile, is a testament to what is achievable when there's a focus on raw computational power, optimization, and flexibility. Its stateless design, ability to leverage hardware accelerators, and seamless parallelization are features that make it a formidable force in the realm of deep learning.
 
