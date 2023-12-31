@@ -1,6 +1,6 @@
 ---
-title: "Basics of Transformers and Huggingface - Inference"
-excerpt: "A take on trying to help understand LLMs and Transformers - In a code first approach!"
+title: "Basics of Transformers and Huggingface - Datasets"
+excerpt: "A take on trying to help understand LLMs and Transformers - Now the dataset!"
 tags:
     - deep learning
     - NLP
