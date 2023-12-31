@@ -6,6 +6,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username: SuperSecureHuman
 minimal_mistakes_skin: dark
 search: true 
+repository: SuperSecureHuman/supersecurehuman.github.io
 
 #Build settings
 markdown: kramdown
