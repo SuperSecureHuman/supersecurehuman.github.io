@@ -1,6 +1,6 @@
 ---
 title: "Serving Fastchat - Personal Journey"
-excerpt: "Serving fastchat for people to experiment with various LLMs"
+excerpt: "Serving fastchat for people to experiment with various LLMs. This guide also incluides setting up Vllm to serve multiple models on a single GPU."
 tags:
     - deep learning
     - NLP
