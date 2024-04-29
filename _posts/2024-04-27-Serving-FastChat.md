@@ -7,7 +7,7 @@ tags:
     - transformers
 
 header:
-    overlay_image: ""
+    overlay_image: "https://i.imgur.com/56wqrSe.png"
     overlay_filter: 0.5
 ---
 
