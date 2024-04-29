@@ -65,13 +65,13 @@ pip3 install -e ".[model_worker,webui]" -vv # verbose because u can see what is 
 FastChat operates by connecting workers (the models) to a controller.
 
 
-1. Launch controller
+* Launch controller
 
 ```bash
 python3 -m fastchat.serve.controller
 ```
 
-2. Launch worker(s)
+* Launch worker(s)
 
 You can run multiple models depending on your GPU capacity. There are options to restrict GPU usage per model, allowing you to load multiple models concurrently. For instance, a 7-billion-parameter model needs about 20GB of VRAM to run efficiently. Here's how to run a few models:
 
@@ -87,7 +87,7 @@ Note: VLLM's flags enable you to optimize the setup, including limiting VRAM usa
 Pro tip: Use hf_transfer to download models faster than traditional methods. Make sure to cache the models before launching FastChat.
 
 
-3. Serve the WebUI
+* Serve the WebUI
 
 ```bash
 python3 -m fastchat.serve.gradio_web_server
