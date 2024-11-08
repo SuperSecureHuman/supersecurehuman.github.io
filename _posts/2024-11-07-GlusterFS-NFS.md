@@ -17,6 +17,8 @@ header:
 
 Trying to run any sort of cluster workloads needs a shared storage solution. GlusterFS is my prefered setup, works well when you deal with the files directly. When it comes to working with PVC on Kubernetes, it's a bit of a pain. NFS is a better solution for that. NFS-Ganesha is a user-space NFS server that supports NFSv3, NFSv4, and pNFS. It's a good solution for Kubernetes PVCs. This guide will be using raspberry pi's as the nodes, but it should be applicable to any system.
 
+Note that this article is not a argument on which is better, GlusterFS or NFS. This is a learning journey to have a file storage solution that works well with Kubernetes PVCs. In real world scenarios, there may be better solutions, but the principles should be the same.  
+
 ## 1. **Setting up GlusterFS**
 
 ### Install GlusterFS on All Nodes
