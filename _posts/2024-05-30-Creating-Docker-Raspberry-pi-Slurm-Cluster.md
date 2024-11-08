@@ -4,6 +4,10 @@ excerpt: "Creating a SLURM cluster on raspberry pi with dockerized worker nodes"
 tags:
     - cluster
     - hpc
+    - slurm
+    - docker
+    - raspberry-pi
+    - glusterfs
 
 header:
     overlay_image: "https://i.imgur.com/Ue4NYXH.jpeg"
